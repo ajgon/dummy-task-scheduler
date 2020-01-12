@@ -1,0 +1,7 @@
+#!/usr/bin/execlineb
+
+with-contenv
+
+cd /app
+s6-setuidgid nobody
+bundle exec sidekiq -r /app/lib/sidekiq.rb -C /app/config/sidekiq.yml
